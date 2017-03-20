@@ -38,7 +38,7 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User update(String id, String str) {
 		User object = findById(id);
-		//object.setContents(str);
+		//object.setFirstName(str.firstName); //setFirs(str);
 		return repo.save(object);
 	}
 

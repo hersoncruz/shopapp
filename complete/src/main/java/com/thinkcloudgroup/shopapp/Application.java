@@ -27,7 +27,7 @@ public class Application {
 
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
-			http.requestMatchers().antMatchers("/","/ctrl/**")
+			http.requestMatchers().antMatchers("/","/user/**")
             .and()
             .authorizeRequests()
             .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
@@ -40,7 +40,7 @@ public class Application {
 
 		@Override
 		public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-			resources.resourceId("ctrl");
+			resources.resourceId("user");
 		}
 
 	}
@@ -64,7 +64,7 @@ public class Application {
             .authorizedGrantTypes("client_credentials", "password")
             .authorities("ROLE_CLIENT")
             .scopes("read","write")
-            .resourceIds("ctrl")
+            .resourceIds("user")
             .secret("secret");
 		}
 

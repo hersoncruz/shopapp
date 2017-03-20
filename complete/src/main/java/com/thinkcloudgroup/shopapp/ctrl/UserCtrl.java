@@ -29,9 +29,14 @@ public class UserCtrl {
 	public List<User> getAll() {
 		return service.getAllObjects();
 	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="{id}")
+	public User getById(@PathVariable String id) {
+		return service.findById(id);
+	}
 
 	@RequestMapping(method=RequestMethod.POST, 
-		    consumes = "text/plain")
+		    consumes = "application/json")
 	//@ResponseBody
 	public User create(@RequestBody String str) {
 		User ob = new User();
@@ -45,7 +50,7 @@ public class UserCtrl {
 		service.delete(id);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, consumes = "text/plain", value="{id}")
+	@RequestMapping(method=RequestMethod.PUT, consumes = "application/json", value="{id}")
 	public User update(@PathVariable String id, @RequestBody String obj) {
 		return service.update(id, obj);
 	}

@@ -10,7 +10,6 @@
 		<config>java:com.thinkcloudgroup.shopapp.Application</config>
 	</configs>
 	<autoconfigs>
-		<config>java:hello.Application</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
