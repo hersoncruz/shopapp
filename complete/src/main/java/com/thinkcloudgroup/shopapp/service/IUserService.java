@@ -11,7 +11,7 @@ public interface IUserService {
 	
 	public void delete(String id);
 	
-	public User update(String id, String str);
+	public User update(String id, User user);
 
 	public User findById(String id);
 }

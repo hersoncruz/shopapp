@@ -36,10 +36,19 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public User update(String id, String str) {
-		User object = findById(id);
-		//object.setFirstName(str.firstName); //setFirs(str);
-		return repo.save(object);
+	public User update(String id, User user) {
+		User updatedUser = findById(id);
+		updatedUser.setFirstName(user.getFirstName());
+		updatedUser.setLastName(user.getLastName());
+		updatedUser.setUsername(user.getUsername());
+		updatedUser.setPassword(user.getPassword());
+		updatedUser.setAddress(user.getAddress());
+		updatedUser.setCity(user.getCity());
+		updatedUser.setCountry(user.getCountry());
+		updatedUser.setActivated(user.getActivated());
+		updatedUser.setActivationCode(user.getActivationCode());
+		updatedUser.setRole(user.getRole());
+		return repo.save(updatedUser);
 	}
 
 	@Override

@@ -51,9 +51,28 @@ public class UserCtrl {
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT, consumes = "application/json", value="{id}")
-	public User update(@PathVariable String id, @RequestBody String obj) {
-		return service.update(id, obj);
-	}
+	public User update(@PathVariable String id, @RequestBody User user) {
+		return service.update(id, user);
+	}	
+	/*
+	public void doPost(@RequestBody User user) {
+		 String firstName = user.firstName;
+		 String lastName = user.lastName;
+		 String username = user.username;
+		 String password = user.password;
+		 String address = user.address;
+		 String city = user.city;
+		 String country = user.country;
+		 Boolean activated = user.activated;
+		 String activationCode = user.activationCode;
+		 String role = user.role;
+	    // User obj1 = user.getObj1;
+	     //User obj2 = wrapperObj.getObj2;
+
+	     //Do what you want with the objects...
+
+
+	}*/
 	
 	@ExceptionHandler
     @ResponseStatus(HttpStatus.NOT_FOUND)
