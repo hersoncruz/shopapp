@@ -1,13 +1,20 @@
 package com.thinkcloudgroup.shopapp.objects;
 
-import org.springframework.data.annotation.Id;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
+import org.springframework.validation.annotation.Validated;
+
+@Validated
 public class User {
 	@Id private String id;
-
 	private String firstName;
 	private String lastName;
-	private String username;
+    public String username;
 	private String password;
 	private String address;
 	private String city;
@@ -15,7 +22,7 @@ public class User {
 	private Boolean activated;
 	private String activationCode;
 	private String role;
-	
+
 	public String getId() {
 		return id;
 	}
@@ -34,12 +41,12 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	 public String getUsername() {
+ 		return username;
+ 	}
+ 	public void setUsername(String username) {
+ 		this.username = username;
+ 	}
 	public String getPassword() {
 		return password;
 	}
@@ -82,6 +89,4 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-
 }
