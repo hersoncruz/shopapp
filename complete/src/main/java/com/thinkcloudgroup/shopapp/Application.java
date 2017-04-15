@@ -27,7 +27,7 @@ public class Application {
 
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
-			http.requestMatchers().antMatchers("/","/user/**")
+			http.requestMatchers().antMatchers("/","/user/**","/venue/**")
             .and()
             .authorizeRequests()
             .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()

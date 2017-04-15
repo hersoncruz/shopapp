@@ -1,4 +1,4 @@
-package com.thinkcloudgroup.rest;
+package com.thinkcloudgroup.shopapp.model;
 
 import java.util.List;
 

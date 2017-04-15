@@ -1,5 +1,7 @@
 package com.thinkcloudgroup.shopapp.objects;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 
 public class Venue {
@@ -15,19 +17,21 @@ public class Venue {
 	private String state;
 	private String country;
 	private String mapUrl;
+	private List<String> categories;
 	
 	// Getters
-	public String  getId() { return id; }
-	public String  getCompanyId() { return companyId; }
-	public String  getName() { return name; }
-	public String  getDescription() { return description; }
-	public String  getType() {return type; }
-	public String  getStatus() { return status; }
-	public String  getAddress() { return address; }
-	public String  getCity() { return city; }
-	public String  getState() { return state; }
-	public String  getCountry() { return country; }
-	public String  getMapUrl() { return mapUrl; }
+	public String getId() { return id; }
+	public String getCompanyId() { return companyId; }
+	public String getName() { return name; }
+	public String getDescription() { return description; }
+	public String getType() {return type; }
+	public String getStatus() { return status; }
+	public String getAddress() { return address; }
+	public String getCity() { return city; }
+	public String getState() { return state; }
+	public String getCountry() { return country; }
+	public String getMapUrl() { return mapUrl; }
+	public List<String> getCategories() { return categories; }
 
 	// Setters
 	public void setId(String id) { this.id = id; }
@@ -41,4 +45,5 @@ public class Venue {
 	public void setState(String state) { this.state = state; }
 	public void setCountry(String country) { this.country = country; }
 	public void setMapUrl(String mapUrl) { this.mapUrl = mapUrl; }
+	public void setCategories(List<String> categories) { this.categories = categories; }
 }
