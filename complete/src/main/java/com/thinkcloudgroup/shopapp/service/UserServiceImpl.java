@@ -46,7 +46,7 @@ public class UserServiceImpl implements IUserService {
 		updatedUser.setCountry(user.getCountry());
 		updatedUser.setActivated(user.getActivated());
 		updatedUser.setActivationCode(user.getActivationCode());
-		updatedUser.setRole(user.getRole());
+//		updatedUser.setRole(user.getRole());
 		return repo.save(updatedUser);
 	}
 
