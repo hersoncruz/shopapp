@@ -1,4 +1,4 @@
-package com.thinkcloudgroup.rest;
+package com.thinkcloudgroup.shopapp.objects;
 
 
 import org.springframework.data.annotation.Id;
