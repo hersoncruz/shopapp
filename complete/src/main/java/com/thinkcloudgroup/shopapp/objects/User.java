@@ -1,11 +1,5 @@
 package com.thinkcloudgroup.shopapp.objects;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.validation.annotation.Validated;
 
@@ -21,7 +15,6 @@ public class User {
 	private String country;
 	private Boolean activated;
 	private String activationCode;
-	private String role;
 
 	public String getId() {
 		return id;
@@ -82,11 +75,5 @@ public class User {
 	}
 	public void setActivationCode(String activationCode) {
 		this.activationCode = activationCode;
-	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
 	}
 }

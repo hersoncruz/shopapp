@@ -1,14 +1,7 @@
 package com.thinkcloudgroup.shopapp.service;
 
-import static org.springframework.data.domain.ExampleMatcher.matching;
-import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.startsWith;
-
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.stereotype.Service;
 
 import com.thinkcloudgroup.shopapp.model.UserRepository;
@@ -53,7 +46,7 @@ public class UserServiceImpl implements IUserService {
 		updatedUser.setCountry(user.getCountry());
 		updatedUser.setActivated(user.getActivated());
 		updatedUser.setActivationCode(user.getActivationCode());
-		updatedUser.setRole(user.getRole());
+//		updatedUser.setRole(user.getRole());
 		return repo.save(updatedUser);
 	}
 

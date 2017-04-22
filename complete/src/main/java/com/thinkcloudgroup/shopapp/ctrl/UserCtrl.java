@@ -1,6 +1,5 @@
 package com.thinkcloudgroup.shopapp.ctrl;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -23,7 +22,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.thinkcloudgroup.shopapp.model.UserRepository;
 import com.thinkcloudgroup.shopapp.objects.User;
 import com.thinkcloudgroup.shopapp.service.IUserService;
 
