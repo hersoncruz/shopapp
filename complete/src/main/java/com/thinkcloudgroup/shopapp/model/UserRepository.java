@@ -10,5 +10,5 @@ import com.thinkcloudgroup.shopapp.objects.User;
 @RepositoryRestResource(collectionResourceRel = "user", path = "user")
 public interface UserRepository extends MongoRepository<User, String>{
 
-	List<User> findByUsername(String username);
+	User findByUsername(String username);
 }

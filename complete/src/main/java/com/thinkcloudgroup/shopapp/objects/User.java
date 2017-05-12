@@ -15,6 +15,14 @@ public class User {
 	private String country;
 	private Boolean activated;
 	private String activationCode;
+	private String role;
+	
+	public User(){}
+	  
+	public User(String username, String password) {
+		this.username = username;
+	    this.password = password;
+	}
 
 	public String getId() {
 		return id;

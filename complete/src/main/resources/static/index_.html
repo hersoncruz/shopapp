@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>AngularJS JWT Authentication Example & Tutorial</title>
+
+    <!-- bootstrap css -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- application css -->
+    <link href="app-content/app.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- main app container -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-2">
+                <ui-view></ui-view>
+            </div>
+        </div>
+    </div>
+
+    <!-- credits -->
+    <div class="text-center">
+        <p>
+            <a href="http://jasonwatmore.com/post/2016/04/05/AngularJS-JWT-Authentication-Example-Tutorial.aspx" target="_top">AngularJS JWT Authentication Example & Tutorial</a>
+        </p>
+        <p>
+            <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+        </p>
+    </div>
+
+    <!-- angular scripts 
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>-->
+    <!-- script for REST call 
+    <script src="libs/angular-resource.js">
+-->
+    <!-- application scripts 
+    <script src="app.js"></script>
+    <script src="app-services/authentication.service.js"></script>
+    <script src="home/index.controller.js"></script>
+    <script src="login/index.controller.js"></script>-->
+
+    <!-- scripts for fake backend 
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-mocks.js"></script>
+    <script src="app-helpers/fake-backend.js"></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        var formData = {
+            client_id: "my-client-with-secret",
+            client_secret: "secret",
+            //username: "my-client-with-secret",
+            //password: "secret",
+            grant_type: "password",
+            //Scope: "website"
+            //grant_type: "authorization_code"
+            
+            
+        };
+//alert("HGEy");
+
+         $.ajax({
+            url: "/oauth/token",
+            //url: "my-client-with-secret:secret@localhost:8080/oauth/token",
+            //url: "http://localhost:8080",
+            //client_id : 'my-client-with-secret',
+            //client_secret: 'secret',
+            //grant_type: "authorization_code",
+            //crossDomain: true,
+            //processData: false,
+            
+            //grant_type: "authorization_code",
+            
+            
+            
+            type: "POST",
+            data: JSON.stringify(formData),
+            //contentType : 'application/json; charset=UTF-8',
+            //contentType: 'application/x-www-form-urlencoded',
+            //{"Content-Type":"application/x-www-form-urlencoded"}
+            dataType: "json",
+            beforeSend: function (request) {
+               //request.setRequestHeader("Accept", "application/json");
+               //request.setRequestHeader("grant_type", "authorization_code"); /*"authorization_code"*/
+               //request.setRequestHeader("grant_type", "password"); /*"authorization_code"*/
+               request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+               
+               //request.setRequestHeader( "Authorization", "Basic " + btoa("my-client-with-secret" + ":" + "secret"));
+               
+              
+               
+               //application/x-www-form-urlencoded
+               //request.setRequestHeader("User-Agent", "Chrome/21.0.1180.83");
+            },
+            
+            success: function (data, textStatus, jqXHR) {
+                console.log(data);
+                console.log(textStatus);
+                //setJwtToken(data.token);
+                //$login.hide();
+                //$notLoggedIn.hide();
+                //showTokenInformation()
+                //showUserInformation();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            	console.log(jqXHR.responseJSON.exception);
+                if (jqXHR.status === 401) {
+                    console.log(jqXHR.responseJSON.exception);
+                    /*$('#loginErrorModal')
+                        .modal("show")
+                        .find(".modal-body")
+                        .empty()
+                        .html("<p>Spring exception:<br>" + jqXHR.responseJSON.exception + "</p>");*/
+                } else {
+                    throw new Error("an unexpected error occured: " + errorThrown);
+                }
+            }
+        });
+
+    </script>
+
+
+
+</body>
+</html>

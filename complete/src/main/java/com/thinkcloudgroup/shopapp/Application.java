@@ -1,9 +1,10 @@
 package com.thinkcloudgroup.shopapp;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
+/*import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,13 +15,14 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+*/
 // The type org.springframework.security.web.DefaultSecurityFilterChain cannot be resolved
 @SpringBootApplication
-public class Application {
+public class Application extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-	
+	/*
 	@Configuration
 	@EnableResourceServer
 	protected static class ResourceServer extends ResourceServerConfigurerAdapter {
@@ -38,7 +40,7 @@ public class Application {
             .antMatchers(HttpMethod.DELETE, "/**").access("#oauth2.hasScope('write')")
             /*.and()
             .exceptionHandling().accessDeniedPage("/my-error-page")*/;
-		}
+/*		}
 
 		@Override
 		public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
@@ -71,4 +73,5 @@ public class Application {
 		}
 
 	}
+*/
 }

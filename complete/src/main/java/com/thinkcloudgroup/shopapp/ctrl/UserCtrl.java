@@ -36,6 +36,11 @@ public class UserCtrl extends ResponseEntityExceptionHandler {
 		this.service = service;
 	}
 	
+	/*@RequestMapping(method=RequestMethod.GET)
+	public String login() {
+		return service.getAllObjects();
+	}*/
+	
 	@RequestMapping(method=RequestMethod.GET)
 	public List<User> getAll() {
 		return service.getAllObjects();
@@ -49,9 +54,9 @@ public class UserCtrl extends ResponseEntityExceptionHandler {
 	@RequestMapping(method=RequestMethod.POST, consumes = "application/json")
 	public String create(@Valid @RequestBody User user, Errors errors) throws JsonProcessingException {    
 		// Validate username
-        List<User> userExist = service.findByUsername(user.getUsername());
+        User userExist = service.findByUsername(user.getUsername());
         
-        if (userExist.size() > 0) {
+        if (userExist != null) {
         	ObjectMapper mapper = new ObjectMapper();
         	//Object to JSON in String
         	String jsonInString = mapper.writeValueAsString(user);
@@ -77,9 +82,9 @@ public class UserCtrl extends ResponseEntityExceptionHandler {
 	public String update(@PathVariable String id, @RequestBody User user) throws JsonProcessingException {
 		
 		// Validate username, this will avoid a user to update his username by checking its now username does not exist for other user
-        List <User> userExist = service.findByUsername(user.getUsername());
+        User userExist = service.findByUsername(user.getUsername());
         boolean saveIt = false;
-        if (userExist.size() > 0 ) {
+        /*if (userExist.size() > 0 ) {
         	if(userExist.size() == 1){
         		for (User temp : userExist) {
             		if(temp.getId().compareTo(id) == 0 ){
@@ -90,6 +95,10 @@ public class UserCtrl extends ResponseEntityExceptionHandler {
         }else if(userExist.size() == 0){
     		saveIt = true;
     	} 
+        */
+        if(userExist.getId().compareTo(id) == 0 ){
+			saveIt = true;
+		}
         
         if(saveIt){
         	ObjectMapper mapper = new ObjectMapper();
