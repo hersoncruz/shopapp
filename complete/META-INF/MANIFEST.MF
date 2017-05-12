@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: com-thinkcloudgroup-shopapp
-Bundle-SymbolicName: com-thinkcloudgroup-shopapp
+Bundle-SymbolicName: com.thinkcloudgroup.shopapp
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: com-thinkcloudgroup-shopapp.jar,
  Diego/.m2/repository/org/springframework/security/spring-security-config/4.1.3.RELEASE/spring-security-config-4.1.3.RELEASE.jar
