@@ -59,4 +59,9 @@ public class UserServiceImpl implements IUserService {
 	public User findByUsername(String username) {
 		return repo.findByUsername(username);
 	}
+	
+	public boolean isAccountNonLocked(){
+		return true;
+		
+	}
 }
