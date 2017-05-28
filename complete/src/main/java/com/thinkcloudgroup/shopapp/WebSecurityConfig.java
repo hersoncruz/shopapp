@@ -16,17 +16,19 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.thinkcloudgroup.shopapp.model.SecUserDetails;
+//import com.thinkcloudgroup.shopapp.model.SecUserDetails;
 import com.thinkcloudgroup.shopapp.model.UserRepository;
 import com.thinkcloudgroup.shopapp.objects.User;
-import com.thinkcloudgroup.shopapp.service.SecUserDetailsService;
+//import com.thinkcloudgroup.shopapp.service.SecUserDetailsService;
+import com.thinkcloudgroup.shopapp.service.UserServiceImpl;
 
 @Configuration
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	SecUserDetailsService userDetailsService;
+	UserServiceImpl userDetailsService;
+	//SecUserDetailsService userDetailsService;
 	
     @Autowired
     public void globalUserDetails(final AuthenticationManagerBuilder auth) throws Exception {
@@ -39,16 +41,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	auth.userDetailsService(userDetailsService);
     }// @formatter:on
     
-    @Autowired
+   /* @Autowired
     public void configAuthBuilder(AuthenticationManagerBuilder builder) throws Exception {
         builder.userDetailsService(userDetailsService); 
     }
+    */
 
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
        
-    	@Component class SecUserDetailsService implements UserDetailsService{
+    	/*@Component class SecUserDetailsService implements UserDetailsService{
 
     	    @Autowired
     	    private UserRepository userRepository;
@@ -56,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     	        /*Here add user data layer fetching from the MongoDB.
     	          I have used userRepository*/
-    	        User user = userRepository.findByUsername(username);
+    	  /*      User user = userRepository.findByUsername(username);
     	        if(user == null){
     	            throw new UsernameNotFoundException(username);
     	        }else{
@@ -64,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	            return details;
     	        }
     	    }
-    	}
+    	}*/
     	
     	return super.authenticationManagerBean();
 

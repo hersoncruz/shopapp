@@ -2,8 +2,13 @@ package com.thinkcloudgroup.shopapp.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.thinkcloudgroup.shopapp.model.SecUserDetails;
+//import com.thinkcloudgroup.shopapp.model.SecUserDetails;
 import com.thinkcloudgroup.shopapp.model.UserRepository;
 import com.thinkcloudgroup.shopapp.objects.User;
 
@@ -11,7 +16,7 @@ import com.thinkcloudgroup.shopapp.service.IUserService;
 
 
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements IUserService, UserDetailsService {
 	private final UserRepository repo;
 	
 	@Autowired
@@ -64,4 +69,17 @@ public class UserServiceImpl implements IUserService {
 		return true;
 		
 	}
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        /*Here add user data layer fetching from the MongoDB.
+          I have used userRepository*/
+        User user = repo.findByUsername(username);
+        if(user == null){
+            throw new UsernameNotFoundException(username);
+        }else{
+            UserDetails details = new SecUserDetails(user);
+            return details;
+        }
+    }
 }
