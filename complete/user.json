@@ -1,0 +1,26 @@
+{ 
+    "_id" : ObjectId("58d0649db7227014046ddb90"), 
+    "_class" : "com.thinkcloudgroup.shopapp.objects.User", 
+    "firstName" : "531", 
+    "lastName" : "531", 
+    "username" : "darmandovargas", 
+    "password" : "asjdflasjdf", 
+    "address" : "Cra X Calle Y", 
+    "city" : "LA", 
+    "country" : "US", 
+    "roles" : "ADMIN", 
+    "role" : "ADMIN"
+}
+{ 
+    "_id" : ObjectId("58d064d0b7227014046ddb91"), 
+    "_class" : "com.thinkcloudgroup.shopapp.objects.User", 
+    "firstName" : "330", 
+    "lastName" : "", 
+    "username" : "john", 
+    "password" : "123", 
+    "address" : "", 
+    "city" : "LA", 
+    "country" : "US", 
+    "roles" : "ADMIN", 
+    "role" : "ADMIN"
+}
