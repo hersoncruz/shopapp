@@ -10,3 +10,4 @@ Export-Package: com.thinkcloudgroup.shopapp,
  com.thinkcloudgroup.shopapp.model,
  com.thinkcloudgroup.shopapp.objects,
  com.thinkcloudgroup.shopapp.service
+Import-Package: com.thinkcloudgroup.shopapp.service

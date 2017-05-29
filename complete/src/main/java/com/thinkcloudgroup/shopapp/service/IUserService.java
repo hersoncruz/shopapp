@@ -19,8 +19,4 @@ public interface IUserService {
 	public User findById(String id);
 
 	public User findByUsername(String username);
-
-	public boolean isAccountNonLocked();
-
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 }

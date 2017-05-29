@@ -77,37 +77,56 @@ public class SecUserDetails implements UserDetails, IUserService, UserDetailsSer
 	@Override
 	public User create(User obj) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.save(obj);
 	}
 
 	@Override
 	public void delete(String id) {
 		// TODO Auto-generated method stub
-		
+		repo.delete(id);
 	}
 
 	@Override
 	public User update(String id, User user) {
 		// TODO Auto-generated method stub
-		return null;
+		User updatedUser = findById(id);
+		updatedUser.setFirstName(user.getFirstName());
+		updatedUser.setLastName(user.getLastName());
+		updatedUser.setUsername(user.getUsername());
+		updatedUser.setPassword(user.getPassword());
+		updatedUser.setAddress(user.getAddress());
+		updatedUser.setCity(user.getCity());
+		updatedUser.setCountry(user.getCountry());
+		updatedUser.setActivated(user.getActivated());
+		updatedUser.setActivationCode(user.getActivationCode());
+//		updatedUser.setRole(user.getRole());
+		return repo.save(updatedUser);
 	}
 
 	@Override
 	public User findById(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.findOne(id);
 	}
 
 	@Override
 	public User findByUsername(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.user;
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		//return this;
+		 User user = repo.findByUsername(username);
+	     if(user == null){
+	         throw new UsernameNotFoundException(username);
+	     }else{
+	         UserDetails details = new SecUserDetails(user);
+	         return details;
+	     }
+	    // return this;
 	}
 
 	

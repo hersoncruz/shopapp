@@ -1,10 +1,12 @@
 package com.thinkcloudgroup.shopapp.objects;
 
+import java.io.Serializable;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.validation.annotation.Validated;
 
 @Validated
-public class User {
+public class User implements Serializable {
 	@Id private String id;
 	private String firstName;
 	private String lastName;
@@ -16,9 +18,10 @@ public class User {
 	private Boolean activated;
 	private String activationCode;
 	private String role;
+	private String roles;
 	
 	public User(){}
-	  
+
 	public User(String username, String password) {
 		this.username = username;
 	    this.password = password;
@@ -83,5 +86,17 @@ public class User {
 	}
 	public void setActivationCode(String activationCode) {
 		this.activationCode = activationCode;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String getRoles() {
+		return roles;
+	}
+	public void setRoles(String roles) {
+		this.roles = roles;
 	}
 }
