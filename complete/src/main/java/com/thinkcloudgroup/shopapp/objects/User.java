@@ -2,15 +2,25 @@ package com.thinkcloudgroup.shopapp.objects;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.validation.annotation.Validated;
 
 @Validated
 public class User implements Serializable {
 	@Id private String id;
+	
+	@NotNull
+    @NotEmpty
 	private String firstName;
 	private String lastName;
+	@NotNull
+    @NotEmpty
     public String username;
+	@NotNull
+    @NotEmpty
 	private String password;
 	private String address;
 	private String city;
