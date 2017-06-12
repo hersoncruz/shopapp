@@ -30,7 +30,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thinkcloudgroup.shopapp.objects.User;
-import com.thinkcloudgroup.shopapp.registration.OnRegistrationCompleteEvent;
+//import com.thinkcloudgroup.shopapp.registration.OnRegistrationCompleteEvent;
 import com.thinkcloudgroup.shopapp.service.IUserService;
 
 //import com.thinkcloudgroup.shopapp.util.GenericResponse;
