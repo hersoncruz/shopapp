@@ -120,10 +120,10 @@ public class RegistrationCtrl  extends ResponseEntityExceptionHandler {
 		}*/
         
         if (userExist != null) {
-        	return "{\"success\":0, \"error\": \"Username already exist\", please use another \"username\":"+un+"}";  	
+        	return "{\"success\":\"0\", \"error\": \"Username already exist, please use another\", \"username\":\""+un+"\"}";  	
         } else { 
         	if(un.isEmpty() || un.isEmpty()){
-        		return "{\"success\":0, \"error\": \"Username or Password can´t be empty\", \"username\":"+un+"}"; 
+        		return "{\"success\":\"0\", \"error\": \"Username or Password can´t be empty\", \"username\":\""+un+"\"}"; 
         	}else{
         		User user = new User(un,pw);//new User(fn, ln, un, pw, ad, ci, co, ros, ro);
         		user.setFirstName(fn);
@@ -134,8 +134,8 @@ public class RegistrationCtrl  extends ResponseEntityExceptionHandler {
         		user.setRoles(ros);
         		user.setRole(ro);
         		User createdUser = userService.create(user);
-            	int answer = (createdUser.getId().isEmpty())?0:1;
-                return "{\"success\":"+answer+", \"user\":"+un+"}";
+            	String answer = (createdUser.getId().isEmpty())?"0":"1";
+                return "{\"success\":\""+answer+"\", \"user\":\""+createdUser.getId()+"\"}";
         	}
         }
         
