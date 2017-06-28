@@ -99,7 +99,6 @@ public class SecUserDetails implements UserDetails, IUserService, UserDetailsSer
 		updatedUser.setCountry(user.getCountry());
 		updatedUser.setActivated(user.getActivated());
 		updatedUser.setActivationCode(user.getActivationCode());
-//		updatedUser.setRole(user.getRole());
 		return repo.save(updatedUser);
 	}
 
@@ -126,10 +125,17 @@ public class SecUserDetails implements UserDetails, IUserService, UserDetailsSer
 	         UserDetails details = new SecUserDetails(user);
 	         return details;
 	     }
-	    // return this;
 	}
 
-	
-	
-   
+	@Override
+	public User createPasswordResetTokenForUser(User user, String token) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean validatePasswordResetToken(String id, String token, String newpassword) {
+		// TODO Auto-generated method stub
+		return null;
+	}   
 }

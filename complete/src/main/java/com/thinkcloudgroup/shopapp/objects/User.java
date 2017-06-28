@@ -27,8 +27,12 @@ public class User implements Serializable {
 	private String country;
 	private Boolean activated;
 	private String activationCode;
-	private String role;
+	private String resetoken;
 	private String roles;
+	
+	//private boolean isUsing2FA;
+	
+	private String secret;
 	
 	public User(){}
 
@@ -97,16 +101,24 @@ public class User implements Serializable {
 	public void setActivationCode(String activationCode) {
 		this.activationCode = activationCode;
 	}
-	public String getRole() {
-		return role;
+	public String getResetoken() {
+		return resetoken;
 	}
-	public void setRole(String role) {
-		this.role = role;
+	public void setResetoken(String resetoken) {
+		this.resetoken = resetoken;
 	}
 	public String getRoles() {
 		return roles;
 	}
 	public void setRoles(String roles) {
 		this.roles = roles;
+	}	
+
+	public String getSecret() {
+		return secret;
+	}
+
+	public void setSecret(String secret) {
+		this.secret = secret;
 	}
 }

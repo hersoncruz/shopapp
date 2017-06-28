@@ -2,9 +2,6 @@ package com.thinkcloudgroup.shopapp.service;
 
 import java.util.List;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
 import com.thinkcloudgroup.shopapp.objects.User;
 
 public interface IUserService {
@@ -19,4 +16,9 @@ public interface IUserService {
 	public User findById(String id);
 
 	public User findByUsername(String username);
+
+	public User createPasswordResetTokenForUser(User user, String token);
+
+	public Boolean validatePasswordResetToken(String id, String token, String newpassword);
+	
 }
