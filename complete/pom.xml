@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.thinkcloudgroup</groupId>
-    <artifactId>com-thinkcloudgroup-shopapp</artifactId>
-    <version>0.1.0</version>
-    <packaging>war</packaging>
+	<groupId>com.thinkcloudgroup</groupId>
+	<artifactId>com-thinkcloudgroup-shopapp</artifactId>
+	<version>0.1.1</version>
+	<packaging>war</packaging>
 
-    <parent>
-		<groupId>org.baeldung</groupId>
-		<artifactId>spring-security-oauth</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+	<!-- Inherit defaults from Spring Boot -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.4.RELEASE</version>
 	</parent>
 
-    <properties>
-    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<start-class>com.thinkcloudgroup.shopapp.Application</start-class>
-        <java.version>1.8</java.version>
-    </properties>
-    <dependencies>
-        <!-- Rest Web Services -->
+		<java.version>1.8</java.version>
+	</properties>
+	
+	<dependencies>
+		<!-- Rest Web Services -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
@@ -40,11 +42,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
-			</dependency>
+		</dependency>
 
 		<!-- Test -->
 		<dependency>
@@ -52,48 +54,45 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- -->  
+		
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
 			<version>1.10.19</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-library</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
+		
 		<dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <scope>test</scope>
-        </dependency>	
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
-			</dependency>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.8.5</version>
-		</dependency> 
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -134,15 +133,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
+		
 		<dependency>
-		    <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
 		<dependency>
 			<groupId>com.jayway.restassured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>${rest-assured.version}</version>
+			<version>2.9.0</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -151,28 +152,25 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
 		<dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jdk8</artifactId>	
-        </dependency>
-        
-        <dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jdk8</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
-		
-		<!-- Java Mail API -->
-	    <dependency>
-		    <groupId>javax.mail</groupId>
-		    <artifactId>mail</artifactId>
-		    <version>1.4.3</version>
-	    </dependency>
-	    
-	    
-	    
-	    <!-- 2fa -->
 
+		<!-- Java Mail API -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.3</version>
+		</dependency>
+
+		<!-- 2fa -->
 		<dependency>
 			<groupId>org.jboss.aerogear</groupId>
 			<artifactId>aerogear-otp-java</artifactId>
@@ -184,39 +182,29 @@
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
 		</dependency>
-		
-		
-		
-		
-		<!--  Gson: Java to Json conversion -->
-	    <dependency>
-	        <groupId>com.google.code.gson</groupId>
-	        <artifactId>gson</artifactId>
-	        <version>2.2.2</version>
-	        <scope>compile</scope>
-	    </dependency>
-        
-        
 
-    </dependencies>
+		<!-- Gson: Java to Json conversion -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.2</version>
+			<scope>compile</scope>
+		</dependency>
 
-    <build>
-        <plugins>
-            <!-- 
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-         	-->
-        
-        
-        
-        
-        
-        <!-- <finalName>spring-security-oauth-server</finalName>  -->
-		<!-- <resources> <resource> <directory>src/main/resources</directory> <filtering>true</filtering> 
-			<excludes> <exclude>*.jks</exclude> </excludes> </resource> </resources> -->
-		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -237,12 +225,16 @@
 				</configuration>
 			</plugin>
 		</plugins>
-        
-        
-        
-    </build>
-    
-    <profiles>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+	</build>
+	<profiles>
 		<profile>
 			<id>integration</id>
 			<build>
@@ -275,10 +267,10 @@
 				</plugins>
 			</build>
 		</profile>
-		
-        <profile>
-            <id>mvc</id>
-            <build>
+
+		<profile>
+			<id>mvc</id>
+			<build>
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -310,9 +302,6 @@
 			</build>
 		</profile>
 	</profiles>
-    
-     
-    
-    
-    <name>com-thinkcloudgroup-shopapp</name>
+
+	<name>shopapp</name>
 </project>
