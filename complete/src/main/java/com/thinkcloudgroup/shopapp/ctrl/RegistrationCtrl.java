@@ -4,6 +4,9 @@ import java.util.Locale;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,8 @@ import com.thinkcloudgroup.shopapp.model.VerificationToken;
 import com.thinkcloudgroup.shopapp.objects.User;
 import com.thinkcloudgroup.shopapp.service.IUserService;
 import com.thinkcloudgroup.shopapp.util.GenericResponse;
+
+
 
 @RestController
 public class RegistrationCtrl  extends ResponseEntityExceptionHandler {
@@ -90,11 +95,12 @@ public class RegistrationCtrl  extends ResponseEntityExceptionHandler {
             final String token = UUID.randomUUID()
                 .toString();
             userService.createPasswordResetTokenForUser(user, token);
-            mailSender.send(constructResetTokenEmail(getAppUrl(request), request.getLocale(), token, user));
+            //String msg = messages.getMessage("message.resetPassword", null, request.getLocale());
+            //mailSender.send(constructResetTokenEmail(getAppUrl(request), msg, token, user));
             response = messages.getMessage("message.resetPasswordEmail", null, request.getLocale());
-            return new GenericResponse(response);
+            return new GenericResponse(response, null);
         }else{
-        	response = messages.getMessage("ValidEmail.user.email", null, request.getLocale());
+        	response = messages.getMessage("message.invalidUserEmail", null, request.getLocale());
         	return new GenericResponse(null,response);
         }
     }
@@ -118,8 +124,8 @@ public class RegistrationCtrl  extends ResponseEntityExceptionHandler {
 
     private SimpleMailMessage constructResendVerificationTokenEmail(final String contextPath, final Locale locale, final VerificationToken newToken, final User user) {
         final String confirmationUrl = contextPath + "/registrationConfirm.html?token=" + newToken.getToken();
-        final String message = messages.getMessage("message.resendToken", null, locale);
-        return constructEmail("Resend Registration Token", message + " \r\n" + confirmationUrl, user);
+        final String msg = messages.getMessage("message.resendToken", null, locale);
+        return constructEmail("Resend Registration Token", msg + " \r\n" + confirmationUrl, user);
     }
 
     private SimpleMailMessage constructResetTokenEmail(final String contextPath, final Locale locale, final String token, final User user) {
